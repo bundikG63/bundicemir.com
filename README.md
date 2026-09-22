@@ -1,44 +1,42 @@
-# Emir Bundić — portfolio
+# Emir Bundić — portfolio (bundicemir.com)
 
-Responsive portfolio za **bundicemir.com**. Čisti HTML, CSS i JavaScript, bez instalacije paketa ili build koraka. Sadržaj je na bosanskom jeziku.
+React + Vite portfolio sa 3D hero scenom (react-three-fiber), parallax efektima i animiranom pozadinom (Framer Motion + canvas). Sadržaj je na bosanskom jeziku i nalazi se u `src/data/content.js`.
 
-## Lokalni pregled
+## Pokretanje lokalno
 
-Otvori `index.html` u browseru ili u ovom folderu pokreni `python3 -m http.server 8000`, pa otvori http://localhost:8000.
+```bash
+npm install --legacy-peer-deps
+npm run dev        # razvojni server, http://localhost:5173
+npm run build      # produkcijski build u folder dist/
+npm run preview    # pregled builda, http://localhost:4173
+```
 
-## GitHub Pages
+## Struktura
 
-1. Kreiraj javni GitHub repozitorij `bundicemir.com` na računu `bundikG63`.
-2. Postavi sadržaj ovog foldera direktno u root repozitorija (ne cijeli ZIP).
-3. Otvori **Settings → Pages → Build and deployment**.
-4. Izaberi **Deploy from a branch**, granu **main**, folder **/(root)**, zatim **Save**.
-5. U **Custom domain** upiši `bundicemir.com`. Fajl `CNAME` već sadrži tu domenu.
-6. Poveži DNS prema tabeli ispod i uključi **Enforce HTTPS** kada certifikat bude spreman.
+- `src/data/content.js` — svi tekstovi (naslovi, projekti, vještine, kontakt). Ovdje mijenjaš sadržaj.
+- `src/components/` — sekcije stranice (Hero, Projects, About, Skills, Services, Contact, Footer) i pomoćne komponente:
+  - `Background.jsx` — animirana aurora pozadina + mreža čestica koja prati miš.
+  - `Hero3D.jsx` — 3D scena (sfera, wireframe, prstenovi, iskre). Učitava se lijeno.
+  - `TiltCard.jsx` — kartica sa 3D nagibom prema mišu.
+  - `Reveal.jsx` — animacija pojavljivanja pri skrolanju.
+- `src/styles/global.css` — boje (CSS varijable), tipografija, dugmad.
+- `public/.htaccess` — Apache konfiguracija za host (HTTPS redirect, keširanje, kompresija).
+- `legacy/` — stari statički sajt, samo kao referenca. Može se obrisati.
 
-Ako želiš prvo koristiti GitHub adresu bez vlastite domene, ukloni `CNAME` i postavku Custom domain, te privremeno prilagodi canonical i og:url u index.html.
+## Deploy na checkdomain hosting
 
-## Domena i DNS
+1. `npm run build` — generiše folder `dist/`.
+2. Poveži se na hosting FTP/SFTP nalogom (podaci su u checkdomain kontrolnom panelu pod Webhosting → FTP).
+3. Obriši stari sadržaj web root foldera (obično `httpdocs`, `html` ili `public_html`).
+4. Uploaduj **sadržaj** foldera `dist/` (ne sam folder) u web root: `index.html`, `favicon.svg`, `.htaccess` i folder `assets/`.
+5. Provjeri https://bundicemir.com. Ako se vidi stara verzija, isprazni keš u browseru (Ctrl+F5).
 
-Domena nije kupljena niti registrovana ovim kodom. Mora biti u tvom vlasništvu. Prvo dodaj domenu u GitHub Pages postavkama, zatim podesi DNS kod svog registrara.
+Fajl `.htaccess` je skriven; u FTP klijentu uključi prikaz skrivenih fajlova.
 
-| Tip | Naziv | Vrijednost |
-| --- | --- | --- |
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | bundikG63.github.io |
+## DNS
 
-DNS promjene mogu trebati do 24 sata. GitHub preporučuje i verifikaciju vlasništva domene kroz profil Settings → Pages; TXT vrijednost preuzmi iz svog računa.
+Ako domena trenutno pokazuje na GitHub Pages (A zapisi 185.199.108–111.153), u checkdomain DNS postavkama promijeni A zapis za `@` i CNAME za `www` na vrijednosti checkdomain webhostinga. Nakon toga u GitHub repou obriši `CNAME` fajl i isključi GitHub Pages da ne bi bilo duplog sajta.
 
-Službena dokumentacija: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+## Animacije i pristupačnost
 
-## Uređivanje
-
-- `index.html`: tekst, projekti, kontakt i SEO metapodaci.
-- `styles.css`: boje, raspored i prilagodba mobilnim uređajima.
-- `script.js`: automatska godina u footeru.
-- `CNAME`: željena domena.
-- `.nojekyll`: objavljivanje statičkih fajlova bez Jekylla.
-
-Kontakt je link na potvrđeni GitHub profil. Privatni e-mail nije javno objavljen. Dodaj željeni poslovni kontakt kada ga odabereš. Opisi predstavljaju rad u okviru Godzilla Developmenta, bez izmišljenih statistika, klijenata ili recenzija. Nema analitike, kolačića, vanjskih fontova niti formulara koji simulira slanje.
+Sve animacije poštuju `prefers-reduced-motion`: korisnici sa uključenom opcijom "smanji pokrete" vide statičnu verziju.
