@@ -1,10 +1,11 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
-import { contact, site } from '../data/content.js'
+import { useLanguage } from '../i18n/LanguageProvider.jsx'
 import Reveal from './Reveal.jsx'
 import './Contact.css'
 
 export default function Contact() {
+  const { contact, site, ui } = useLanguage()
   const reduced = useReducedMotion()
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })

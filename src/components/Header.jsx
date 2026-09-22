@@ -1,9 +1,11 @@
+import LanguageSwitcher from './LanguageSwitcher.jsx'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { nav, contact } from '../data/content.js'
+import { useLanguage } from '../i18n/LanguageProvider.jsx'
 import './Header.css'
 
 export default function Header() {
+  const { nav, contact, ui } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
@@ -45,19 +47,20 @@ export default function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
-      <a href="#" className="brand" aria-label="Emir Bundić — početna">
+      <a href="#" className="brand" aria-label={ui.home}>
         eb
       </a>
       <button
         className="menu-toggle"
         aria-expanded={open}
-        aria-controls="main-nav"
+        aria-controls="mobile-nav"
+        aria-label={open ? ui.closeMenu : ui.menu}
         onClick={() => setOpen((o) => !o)}
       >
-        <span>Meni</span>
+        <span>{ui.menu}</span>
         <span className={`menu-lines ${open ? 'open' : ''}`} aria-hidden="true" />
       </button>
-      <nav id="main-nav" aria-label="Glavna navigacija" className="nav-desktop">
+      <nav id="main-nav" aria-label={ui.navigation} className="nav-desktop">
         {links.map((l) => (
           <a
             key={l.href}
@@ -73,11 +76,13 @@ export default function Header() {
           </a>
         ))}
       </nav>
+      <LanguageSwitcher />
       <AnimatePresence>
         {open && (
           <motion.nav
             className="nav-mobile"
-            aria-label="Mobilna navigacija"
+            aria-label={ui.mobileNavigation}
+            id="mobile-nav"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}

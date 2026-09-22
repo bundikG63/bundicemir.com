@@ -1,10 +1,11 @@
-import { specialties } from '../data/content.js'
+import { useLanguage } from '../i18n/LanguageProvider.jsx'
 import './Marquee.css'
 
 export default function Marquee() {
+  const { specialties, ui } = useLanguage()
   const row = [...specialties, ...specialties, ...specialties]
   return (
-    <div className="marquee" aria-label="Područja rada">
+    <div className="marquee" aria-label={ui.specialties}>
       <div className="marquee-track">
         {[0, 1].map((k) => (
           <div className="marquee-group" key={k} aria-hidden={k === 1}>

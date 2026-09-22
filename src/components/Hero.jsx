@@ -1,6 +1,6 @@
 import { lazy, Suspense, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { hero, site } from '../data/content.js'
+import { useLanguage } from '../i18n/LanguageProvider.jsx'
 import './Hero.css'
 
 const Hero3D = lazy(() => import('./Hero3D.jsx'))
@@ -29,6 +29,7 @@ function SplitWords({ text, className }) {
 }
 
 export default function Hero({ reduced }) {
+  const { hero, site, ui } = useLanguage()
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const yCopy = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -120])

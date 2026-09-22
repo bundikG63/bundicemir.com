@@ -1,3 +1,4 @@
+import { useLanguage } from './i18n/LanguageProvider.jsx'
 import { useReducedMotion } from 'framer-motion'
 import Background from './components/Background.jsx'
 import Header from './components/Header.jsx'
@@ -12,10 +13,11 @@ import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 
 export default function App() {
+  const { ui } = useLanguage()
   const reduced = useReducedMotion()
   return (
     <>
-      <a className="skip" href="#main">Preskoči na sadržaj</a>
+      <a className="skip" href="#main">{ui.skip}</a>
       <Background reduced={reduced} />
       <ScrollProgress />
       <Header />

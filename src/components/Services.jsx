@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
-import { services } from '../data/content.js'
+import { useLanguage } from '../i18n/LanguageProvider.jsx'
 import Reveal from './Reveal.jsx'
 import './Services.css'
 
 export default function Services() {
+  const { services, ui } = useLanguage()
   return (
     <section className="section wrap services" aria-labelledby="services-title">
       <Reveal>
@@ -13,7 +14,7 @@ export default function Services() {
       <div className="service-list">
         {services.list.map((s, i) => (
           <motion.div
-            key={s.title}
+            key={i}
             className="service-row"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

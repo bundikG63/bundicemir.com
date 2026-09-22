@@ -1,6 +1,6 @@
 # Emir Bundić — portfolio (bundicemir.com)
 
-React + Vite portfolio sa 3D hero scenom (react-three-fiber), parallax efektima i animiranom pozadinom (Framer Motion + canvas). Sadržaj je na bosanskom jeziku i nalazi se u `src/data/content.js`.
+React + Vite portfolio sa 3D hero scenom (react-three-fiber), parallax efektima i animiranom pozadinom (Framer Motion + canvas). Sadržaj je dostupan na bosanskom, engleskom i njemačkom jeziku. Bosanski sadržaj je u `src/data/content.js`, a prevodi u `src/i18n/en.js` i `src/i18n/de.js`.
 
 ## Pokretanje lokalno
 
@@ -40,3 +40,14 @@ Ako domena trenutno pokazuje na GitHub Pages (A zapisi 185.199.108–111.153), u
 ## Animacije i pristupačnost
 
 Sve animacije poštuju `prefers-reduced-motion`: korisnici sa uključenom opcijom "smanji pokrete" vide statičnu verziju.
+
+## Jezici (BS / EN / DE)
+
+Izbor jezika je uvijek dostupan u zaglavlju, uključujući mobilni prikaz. Prevodi obuhvataju sve javne sekcije portfolija, proširene opise projekata, dugmad, oznake pristupačnosti i metapodatke. Tehnički nazivi, brendovi, adrese i identifikatori sekcija ostaju stabilni.
+
+- Direktni linkovi: `/?lang=bs`, `/?lang=en`, `/?lang=de`. Postojeći hash i ostali query parametri se čuvaju.
+- Prioritet: podržani jezik u URL-u → sačuvani izbor → bosanski.
+- Izbor se pamti lokalno pod `bundicemir.language.v1`; bez dostupnog localStorage prebacivanje i dalje radi.
+- Browser Back/Forward vraća prethodni izbor jezika.
+- `src/i18n/locales.js` sadrži kratke UI tekstove i SEO opise; `LanguageProvider.jsx` upravlja stanjem.
+- Nakon izmjene pokreni postojeći build i objavi novi sadržaj `dist/` na svom hostingu. Prevod se primjenjuje na javni portfolio; zaseban administratorski panel `analitika/` nije mijenjan.

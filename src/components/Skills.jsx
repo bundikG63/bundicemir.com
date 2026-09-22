@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
-import { skills } from '../data/content.js'
+import { useLanguage } from '../i18n/LanguageProvider.jsx'
 import Reveal from './Reveal.jsx'
 import './Skills.css'
 
 export default function Skills() {
+  const { skills, ui } = useLanguage()
   return (
     <section id="vjestine" className="section wrap skills-section" aria-labelledby="skills-title">
       <Reveal>
@@ -15,7 +16,7 @@ export default function Skills() {
       <div className="skill-list">
         {skills.list.map((s, i) => (
           <motion.article
-            key={s.title}
+            key={i}
             className="skill-row"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}

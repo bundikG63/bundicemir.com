@@ -129,3 +129,28 @@
   .nav-mobile a { padding: 12px 14px; font-size: 16px; }
   .nav-mobile .nav-contact { border-radius: 12px; margin: 6px 0 4px; justify-content: space-between; }
 }
+
+/* Language controls stay visible on desktop and mobile. */
+.header { flex-wrap: nowrap; gap: 18px; }
+.nav-desktop { margin-left: auto; gap: clamp(16px, 2.5vw, 36px); }
+.language-switcher { display: flex; flex-shrink: 0; align-items: center; gap: 2px; padding: 3px; border: 1px solid var(--border); border-radius: 99px; background: #0c0b13; }
+.language-switcher button { display: grid; place-items: center; width: 36px; min-height: 38px; padding: 0; border: 0; border-radius: 99px; background: transparent; color: var(--muted); font-family: inherit; font-size: 12px; font-weight: 600; line-height: 1; cursor: pointer; transition: background .2s, color .2s; }
+.language-switcher button:hover { color: var(--text); background: #b9a1ff15; }
+.language-switcher button[aria-pressed="true"] { background: var(--accent); color: #14101e; }
+.language-switcher button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 960px) {
+  .header { height: auto; min-height: 66px; flex-wrap: wrap; gap: 10px; padding: 10px 14px; }
+  .header .brand { order: 0; }
+  .language-switcher { order: 1; margin-left: auto; }
+  .menu-toggle { order: 2; display: flex; }
+  .nav-desktop { display: none; }
+  .nav-mobile { order: 3; display: flex; }
+  .nav-mobile a { padding: 12px 14px; font-size: 16px; }
+  .nav-mobile .nav-contact { border-radius: 12px; margin: 6px 0 4px; justify-content: space-between; }
+}
+@media (max-width: 380px) {
+  .header { gap: 8px; }
+  .menu-toggle { width: 44px; justify-content: center; padding: 8px; }
+  .menu-toggle > span:first-child { display: none; }
+  .language-switcher button { width: 32px; }
+}

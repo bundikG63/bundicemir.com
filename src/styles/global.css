@@ -203,3 +203,11 @@ h3 {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+/* German compound words must fit narrow phones without clipping. */
+html[lang="de"] h1,
+html[lang="de"] h2,
+html[lang="de"] h3 {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}

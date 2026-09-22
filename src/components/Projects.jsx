@@ -1,16 +1,17 @@
 import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence, useReducedMotion } from 'framer-motion'
-import { projects } from '../data/content.js'
+import { useLanguage } from '../i18n/LanguageProvider.jsx'
 import TiltCard from './TiltCard.jsx'
 import Reveal from './Reveal.jsx'
 import './Projects.css'
 
 function More({ text }) {
+  const { ui } = useLanguage()
   const [open, setOpen] = useState(false)
   return (
     <div className="more">
       <button className="more-toggle" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
-        Više o projektu
+        {ui.more}
         <motion.span aria-hidden="true" animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.25 }}>
           +
         </motion.span>
@@ -33,6 +34,7 @@ function More({ text }) {
 }
 
 export default function Projects() {
+  const { projects, ui } = useLanguage()
   const reduced = useReducedMotion()
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
@@ -67,7 +69,7 @@ export default function Projects() {
               {f.wordmark}
               <span>{f.sub}</span>
             </motion.div>
-            <div className="system-map" aria-label="Povezani dijelovi projekta">
+            <div className="system-map" aria-label={ui.projectParts}>
               {f.map.map((m, i) => (
                 <span key={m} className="map-node" style={{ '--i': i }}>
                   <b>{m}</b>
@@ -91,7 +93,7 @@ export default function Projects() {
 
       <div className="project-grid">
         {projects.list.map((p, i) => (
-          <Reveal key={p.label} delay={0.1 * i}>
+          <Reveal key={i} delay={0.1 * i}>
             <TiltCard className="project small">
               <div className="project-label">
                 <span>{p.label}</span>
