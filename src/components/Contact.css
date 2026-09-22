@@ -1,0 +1,72 @@
+.contact-wrap { position: relative; z-index: 1; padding-bottom: 40px; }
+.contact {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 12% 0%, #9c6ae867, transparent 60%),
+    linear-gradient(140deg, rgba(38, 32, 52, 0.9), rgba(16, 16, 23, 0.9));
+  padding: 64px;
+  border: 1px solid #77618e;
+  border-radius: 28px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.contact-glow {
+  position: absolute;
+  right: -10%;
+  top: -30%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff7ad940, transparent 65%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+.contact-ring {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  width: 260px;
+  height: 260px;
+  margin-top: -130px;
+  border-radius: 50%;
+  border: 1px solid rgba(185, 161, 255, 0.25);
+  pointer-events: none;
+}
+.contact-ring::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 20px var(--accent);
+  top: -5px;
+  left: 50%;
+}
+.contact h2 {
+  font-size: clamp(40px, 5.5vw, 76px);
+  font-weight: 700;
+  max-width: 900px;
+  position: relative;
+}
+.contact-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-top: 42px;
+  position: relative;
+}
+.contact-bottom p { color: #c0b7cc; margin: 0; font-size: 16px; max-width: 420px; }
+@media (max-width: 1000px) {
+  .contact { padding: 45px; }
+  .contact-bottom { align-items: start; flex-direction: column; }
+  .contact-ring { display: none; }
+}
+@media (max-width: 720px) {
+  .contact { padding: 33px 26px; border-radius: 22px; }
+  .contact h2 { font-size: clamp(35px, 8.4vw, 54px); }
+  .contact-bottom { gap: 25px; margin-top: 30px; }
+  .contact-bottom p { font-size: 15px; }
+}
