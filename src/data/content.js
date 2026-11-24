@@ -23,6 +23,7 @@ export const hero = {
 export const work = {
   title: 'Projekti',
   open: 'Otvori {name}',
+  count: 'Projekat {n} od {total}',
   items: [
     {
       id: 'tandemettle',

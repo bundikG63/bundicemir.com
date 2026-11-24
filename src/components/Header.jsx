@@ -27,7 +27,10 @@ export default function Header() {
     <header className="head">
       <div className="wrap head-in">
         <a className="mark" href="#top" aria-label={ui.home} onClick={() => setOpen(false)}>
-          {site.name}
+          {site.name
+            .split(' ')
+            .map((w) => w[0])
+            .join('')}
         </a>
         <nav className="head-nav" aria-label={ui.navigation}>
           {nav.map((n) => (
