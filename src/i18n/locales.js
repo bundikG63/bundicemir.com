@@ -13,9 +13,9 @@ export const isLanguage = (value) => Object.hasOwn(content, value)
 export const resolveLanguage = (requested, saved) => (isLanguage(requested) ? requested : isLanguage(saved) ? saved : 'bs')
 
 export const ui = {
-  bs: { menu: 'Meni', closeMenu: 'Zatvori meni', home: 'Emir Bundić, početna', navigation: 'Glavna navigacija', language: 'Jezik stranice', skip: 'Preskoči na sadržaj', jump: 'Projekti, prečice' },
-  en: { menu: 'Menu', closeMenu: 'Close menu', home: 'Emir Bundić, home', navigation: 'Main navigation', language: 'Website language', skip: 'Skip to content', jump: 'Projects, shortcuts' },
-  de: { menu: 'Menü', closeMenu: 'Menü schließen', home: 'Emir Bundić, Startseite', navigation: 'Hauptnavigation', language: 'Sprache der Website', skip: 'Zum Inhalt springen', jump: 'Projekte, Sprungmarken' },
+  bs: { menu: 'Meni', closeMenu: 'Zatvori meni', home: 'Emir Bundić, početna', navigation: 'Glavna navigacija', language: 'Jezik stranice', skip: 'Preskoči na sadržaj', entry: 'Ulaz', route: 'Put kroz stranicu' },
+  en: { menu: 'Menu', closeMenu: 'Close menu', home: 'Emir Bundić, home', navigation: 'Main navigation', language: 'Website language', skip: 'Skip to content', entry: 'Start', route: 'Route through the page' },
+  de: { menu: 'Menü', closeMenu: 'Menü schließen', home: 'Emir Bundić, Startseite', navigation: 'Hauptnavigation', language: 'Sprache der Website', skip: 'Zum Inhalt springen', entry: 'Start', route: 'Weg durch die Seite' },
 }
 
 export const metadata = {

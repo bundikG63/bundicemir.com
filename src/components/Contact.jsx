@@ -6,8 +6,8 @@ export default function Contact() {
   const { contact, footer, site } = useLanguage()
 
   return (
-    <section id="kontakt" className="contact" data-scene="signal" aria-labelledby="contact-title">
-      <div className="wrap contact-in">
+    <section id="kontakt" className="station contact" data-scene="signal" data-station aria-labelledby="contact-title">
+      <div className="wrap station-in contact-in">
         <h2 id="contact-title" className="contact-title">
           {contact.title}
         </h2>

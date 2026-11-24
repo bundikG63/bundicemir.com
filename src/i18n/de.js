@@ -18,7 +18,6 @@ export default {
   work: {
     title: 'Projekte',
     open: '{name} öffnen',
-    count: 'Projekt {n} von {total}',
     items: [
       {
         ...tandemettle,

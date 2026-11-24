@@ -4,8 +4,8 @@ export default function About() {
   const { about } = useLanguage()
 
   return (
-    <section id="o-meni" className="about" data-scene="base" aria-labelledby="about-title">
-      <div className="wrap about-in">
+    <section id="o-meni" className="station about" data-scene="base" data-station aria-labelledby="about-title">
+      <div className="wrap station-in about-in">
         <h2 id="about-title" className="sr">
           {about.title}
         </h2>
