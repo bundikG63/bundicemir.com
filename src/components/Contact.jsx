@@ -1,44 +1,37 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { useLanguage } from '../i18n/LanguageProvider.jsx'
-import Reveal from './Reveal.jsx'
-import './Contact.css'
+import LanguageSwitcher from './LanguageSwitcher.jsx'
+import { ArrowUp, Github } from './icons.jsx'
 
 export default function Contact() {
-  const { contact, site, ui } = useLanguage()
-  const reduced = useReducedMotion()
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const yGlow = useTransform(scrollYProgress, [0, 1], [reduced ? 0 : 160, reduced ? 0 : -160])
-  const rot = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 90])
+  const { contact, footer, site } = useLanguage()
 
   return (
-    <section id="kontakt" className="wrap contact-wrap" ref={ref}>
-      <Reveal>
-        <div className="contact">
-          <motion.div className="contact-glow" style={{ y: yGlow }} aria-hidden="true" />
-          <motion.div className="contact-ring" style={{ rotate: rot }} aria-hidden="true" />
-          <p className="eyebrow">{contact.eyebrow}</p>
-          <h2>
-            {contact.title}
-            <br />
-            <span className="gradient-text">{contact.titleAccent}</span>
-          </h2>
-          <div className="contact-bottom">
-            <p>{contact.text}</p>
-            <motion.a
-              className="button dark"
-              href={site.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {contact.button} <span aria-hidden="true">↗</span>
-            </motion.a>
-          </div>
+    <section id="kontakt" className="contact" data-scene="signal" aria-labelledby="contact-title">
+      <div className="wrap contact-in">
+        <h2 id="contact-title" className="contact-title">
+          {contact.title}
+        </h2>
+        <p className="contact-text">{contact.text}</p>
+        <a className="contact-mail" href={`mailto:${site.email}`}>
+          {site.email}
+        </a>
+        <div className="actions">
+          <a className="btn" href={site.github} target="_blank" rel="noopener noreferrer">
+            {contact.github}
+            <Github />
+          </a>
         </div>
-      </Reveal>
+      </div>
+      <footer className="wrap foot">
+        <span>
+          © {new Date().getFullYear()} {site.name}
+        </span>
+        <LanguageSwitcher />
+        <a className="foot-top" href="#top">
+          {footer.top}
+          <ArrowUp width="16" height="16" />
+        </a>
+      </footer>
     </section>
   )
 }

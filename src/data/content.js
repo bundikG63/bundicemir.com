@@ -1,131 +1,116 @@
+// Bosanski je izvorni jezik. Prevodi: src/i18n/en.js i src/i18n/de.js.
+
 export const site = {
   name: 'Emir Bundić',
   domain: 'bundicemir.com',
   github: 'https://github.com/bundikG63',
+  email: 'bundicemir@outlook.com',
 }
 
 export const nav = [
   { href: '#projekti', label: 'Projekti' },
   { href: '#o-meni', label: 'O meni' },
-  { href: '#vjestine', label: 'Vještine' },
+  { href: '#kontakt', label: 'Kontakt' },
 ]
 
 export const hero = {
-  titleA: 'Ideje pretvaram',
-  titleB: 'u',
-  titleAccent: 'kod koji radi.',
-  text: 'Razvijam custom FiveM skripte, web rješenja i sisteme koji povezuju sve u jednu funkcionalnu cjelinu.',
-  primary: 'Istraži moj rad',
-  secondary: 'Moj GitHub',
-  stack: ['LUA', 'JAVASCRIPT', 'FIVEM', 'SQL'],
-  scroll: 'ISTRAŽI PORTFOLIO',
-  caption: ['EMIR BUNDIĆ', 'DEVELOPER'],
+  line: 'Ideje pretvaram u kod koji radi.',
+  text: 'Pravim web proizvode, desktop aplikacije i FiveM sisteme. Ispod su četiri projekta, a tri možeš otvoriti odmah.',
+  primary: 'Pogledaj projekte',
+  secondary: 'Piši mi',
 }
 
-export const specialties = [
-  'Custom development',
-  'FiveM systems',
-  'Web experiences',
-  'API integrations',
-]
-
-export const projects = {
-  eyebrow: '01 / ODABRANI RADOVI',
-  title: 'Od koda do',
-  titleAccent: 'iskustva.',
-  lead: 'Projekti na kojima sam radio u okviru Godzilla Developmenta.',
-  featured: {
-    label: 'GODZILLA DEVELOPMENT',
-    number: 'PROJECT / 001',
-    wordmark: 'GODZILLA',
-    sub: 'CONNECTED ROLEPLAY SYSTEMS',
-    map: ['WEBSITE', 'SERVER', 'LAUNCHER'],
-    tags: ['FiveM', 'Web', 'Integracije'],
-    title: 'Jedan server. Povezan ekosistem.',
-    text: 'Razvoj custom launchera i povezivanje web stranice sa FiveM serverom. Sistemi osmišljeni da igračima i timu olakšaju pristup zajednici i njenim funkcijama.',
-    more: 'Rad obuhvata launcher za pristup serveru, povezivanje weba i servera te integraciju sistema za novosti. Fokus je na tome da odvojene komponente funkcionišu zajedno.',
-  },
-  list: [
+export const work = {
+  title: 'Projekti',
+  open: 'Otvori {name}',
+  items: [
     {
-      label: '02 / GAMEPLAY SYSTEMS',
-      icon: '{ }',
-      title: 'Policijski sistemi s više dubine.',
-      text: 'Custom policijske skripte s forenzikom i MDT-om za strukturiranije roleplay iskustvo i rad policijskih timova.',
-      tags: ['FiveM', 'MDT', 'Forenzika'],
-      more: 'Policijske funkcije povezane u cjelinu: digitalna evidencija kroz MDT i forenzički elementi koji proširuju mogućnosti istražnog roleplaya.',
+      id: 'tandemettle',
+      name: 'Tandemettle',
+      headline: 'AI usluge za male firme u Njemačkoj.',
+      text: 'Stranica i alati firme koja malim timovima uvodi AI u poslove koje već rade: automatizaciju, chatbot za kupce i savjetovanje.',
+      facts: [
+        'Kalkulator uštede vremena koji unos ne sprema i ne šalje',
+        'Chat asistent koji odgovara iz objavljenih usluga i čestih pitanja',
+        'Zahtjev za uslugu i PDF pregled usluga na jednom mjestu',
+      ],
+      url: 'https://tandemettle-99cjxk.polsia.io/',
+      host: 'tandemettle-99cjxk.polsia.io',
     },
     {
-      label: '03 / CUSTOM SCRIPTS',
-      icon: '</>',
-      title: 'Poslovi koji pokreću grad.',
-      text: 'Skripte za kamiondžije, taxi, bageriste, rudare i šlep službu, uz custom admin sistem za tim servera.',
-      tags: ['Gameplay', 'Poslovi', 'Admin alati'],
-      more: 'Razvoj različitih gameplay tokova prilagođenih zajednici. Administrativni alati podržavaju svakodnevni rad tima koji upravlja serverom.',
+      id: 'letterpilot',
+      name: 'LetterPilot AI',
+      headline: 'Službena pisma, objašnjena jednostavnim jezikom.',
+      text: 'Učitaš PDF ili fotografiju pisma, dobiješ objašnjenje na svom jeziku i nacrt formalnog odgovora na njemačkom kao A4 PDF.',
+      facts: [
+        'Svaki rok i iznos pokazuje odlomak pisma iz kojeg dolazi',
+        'Objašnjenja na njemačkom, engleskom, bosanskom, hrvatskom, srpskom i turskom',
+        'Dva dokumenta besplatno, zatim paketi ili mjesečna pretplata',
+      ],
+      stack: 'Next.js, Supabase, Stripe, Cloudflare Workers',
+      url: 'https://staging.letterpilotai.com/en',
+      host: 'staging.letterpilotai.com',
+    },
+    {
+      id: 'faco',
+      name: 'FAĆO',
+      headline: 'Osobni AI asistent za Windows.',
+      text: 'Desktop aplikacija koja razgovara, vodi zadatke i radi s datotekama na računaru, s modelom u oblaku ili potpuno lokalno.',
+      facts: [
+        'Svaka izmjena na disku i svaka naredba čeka tvoju potvrdu',
+        'Radi s Anthropicom, OpenAI-kompatibilnim servisima i lokalnim modelima preko Ollame',
+        'API ključevi ostaju u Windows Credential Manageru',
+      ],
+      stack: 'Tauri 2, React, TypeScript, Rust, SQLite',
+    },
+    {
+      id: 'godzilla',
+      name: 'Godzilla',
+      headline: 'FiveM roleplay server s vlastitim sistemima.',
+      text: 'Custom skripte, launcher i web povezani sa serverom. Sistemi su pisani za ovu zajednicu, a ne kupljeni i zalijepljeni.',
+      stack: 'Lua, JavaScript, SQL, FiveM',
+      credits: [
+        { label: 'Policija', items: ['MDT', 'Forenzika', 'Dispatch', 'SEK jedinica'] },
+        { label: 'Poslovi', items: ['Kamiondžija', 'Taxi', 'Bagerista', 'Rudar', 'Šlep služba', 'Ribar'] },
+        { label: 'Kriminal', items: ['Pljačka zlatare', 'Oklopno vozilo', 'Mini pljačke', 'Chop shop'] },
+        { label: 'Grad', items: ['Stanovi i sefovi', 'Bolnica i hitna', 'Fight Club', 'Dokumenti'] },
+        { label: 'Tim servera', items: ['Admin sistem', 'Anticheat', 'Launcher', 'Web i server'] },
+      ],
     },
   ],
 }
 
 export const about = {
-  eyebrow: '02 / IZA KODA',
-  name: 'Emir Bundić',
-  role: 'Developer. Kreator. Problem solver.',
-  githubLabel: 'Moj GitHub',
+  title: 'O meni',
   large: 'Najviše me zanima trenutak kada ideja postane nešto što ljudi mogu stvarno koristiti.',
   paragraphs: [
-    'Moj rad spaja razvoj web rješenja, custom FiveM skripti i integracija. Kroz Godzilla Development radim na funkcijama koje povezuju iskustvo igrača i alate za upravljanje zajednicom.',
+    'Radim web proizvode, desktop aplikacije i custom FiveM skripte. Na svakom projektu prolazim cijeli put: od prve skice do verzije koja je objavljena i radi.',
     'Volim razumjeti cijeli problem: šta korisnik treba, kako sistem treba funkcionisati i kako njegove dijelove povezati u smislenu cjelinu.',
   ],
-  skills: ['Lua', 'JavaScript', 'HTML & CSS', 'SQL', 'FiveM', 'API integracije'],
-  skillsLink: 'Pogledaj moje vještine',
-}
-
-export const skills = {
-  eyebrow: '03 / DEVELOPMENT VJEŠTINE',
-  title: 'Znanje iza svakog',
-  titleAccent: 'projekta.',
-  list: [
-    {
-      label: 'GAME DEVELOPMENT',
-      title: 'Lua & FiveM',
-      text: 'Razvoj i prilagođavanje skripti za roleplay servere: od poslova i interakcija do policijskih funkcija i admin alata.',
-      tags: ['Lua', 'FiveM', 'Gameplay logika'],
-    },
-    {
-      label: 'WEB DEVELOPMENT',
-      title: 'HTML, CSS & JavaScript',
-      text: 'Izrada web interfejsa i interaktivnih funkcija koje korisnicima približavaju server i njegove sadržaje.',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-    },
-    {
-      label: 'PODACI & SISTEMI',
-      title: 'SQL & baze podataka',
-      text: 'Rad s podacima i SQL upitima za serverske skripte, uz prilagođavanje strukture baze potrebama pojedinih funkcija.',
-      tags: ['SQL', 'Baze podataka', 'Serverski podaci'],
-    },
-    {
-      label: 'INTEGRACIJE',
-      title: 'Web, server & launcher',
-      text: 'Povezivanje web stranice, FiveM servera i custom launchera, uz API integracije i Discord webhookove za obavještenja.',
-      tags: ['API integracije', 'Discord webhookovi', 'Custom launcher'],
-    },
+  toolsTitle: 'Čime radim',
+  tools: [
+    { label: 'Web', items: 'JavaScript, TypeScript, React, Next.js, HTML i CSS' },
+    { label: 'Desktop', items: 'Tauri, Rust' },
+    { label: 'Podaci', items: 'SQL, SQLite, Supabase' },
+    { label: 'Igre', items: 'Lua, FiveM' },
+    { label: 'Povezivanje', items: 'API integracije, Stripe, Discord webhookovi' },
   ],
-}
-
-export const services = {
-  eyebrow: '04 / ŠTA RAZVIJAM',
-  title: 'Tvoja ideja. Moj sljedeći izazov.',
-  list: [
-    { title: 'Web rješenja', text: 'Portfolio stranice, prezentacije i web interfejsi prilagođeni namjeni projekta.' },
-    { title: 'FiveM development', text: 'Custom skripte, gameplay sistemi i alati za administraciju servera.' },
-    { title: 'Povezivanje sistema', text: 'Integracije weba, servera i drugih alata u zajednički tok rada.' },
+  servicesTitle: 'Šta mogu napraviti',
+  services: [
+    { title: 'Web proizvodi', text: 'Od prezentacijske stranice do aplikacije s prijavom, plaćanjem i bazom podataka.' },
+    { title: 'Desktop aplikacije', text: 'Windows programi s vlastitim sučeljem, lokalnom bazom i sigurnim čuvanjem ključeva.' },
+    { title: 'FiveM sistemi', text: 'Custom skripte, gameplay sistemi i alati za tim koji vodi server.' },
+    { title: 'Povezivanje sistema', text: 'Web, server, launcher i vanjski servisi spojeni u jedan tok rada.' },
   ],
 }
 
 export const contact = {
-  eyebrow: '05 / SLJEDEĆI PROJEKT',
   title: 'Imaš ideju?',
-  titleAccent: 'Hajde da je izgradimo.',
-  text: 'Pogledaj moj GitHub profil i povežimo se oko sljedećeg projekta.',
-  button: 'Pronađi me na GitHubu',
-  navLabel: 'Razgovarajmo',
+  text: 'Napiši mi šta gradiš i gdje si zapeo.',
+  email: 'Pošalji email',
+  github: 'GitHub profil',
+}
+
+export const footer = {
+  top: 'Na vrh',
 }

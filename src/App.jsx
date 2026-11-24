@@ -1,36 +1,44 @@
+import { useEffect } from 'react'
 import { useLanguage } from './i18n/LanguageProvider.jsx'
-import { useReducedMotion } from 'framer-motion'
-import Background from './components/Background.jsx'
 import Header from './components/Header.jsx'
-import ScrollProgress from './components/ScrollProgress.jsx'
 import Hero from './components/Hero.jsx'
-import Marquee from './components/Marquee.jsx'
-import Projects from './components/Projects.jsx'
+import Work from './components/Work.jsx'
 import About from './components/About.jsx'
-import Skills from './components/Skills.jsx'
-import Services from './components/Services.jsx'
 import Contact from './components/Contact.jsx'
-import Footer from './components/Footer.jsx'
+
+// The page takes the colours of whichever scene crosses the middle of the screen.
+function useScene() {
+  useEffect(() => {
+    const root = document.documentElement
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) root.dataset.scene = entry.target.dataset.scene
+        }
+      },
+      { rootMargin: '-50% 0px -50% 0px' },
+    )
+    document.querySelectorAll('[data-scene]').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
 
 export default function App() {
   const { ui } = useLanguage()
-  const reduced = useReducedMotion()
+  useScene()
+
   return (
     <>
-      <a className="skip" href="#main">{ui.skip}</a>
-      <Background reduced={reduced} />
-      <ScrollProgress />
+      <a className="skip" href="#main">
+        {ui.skip}
+      </a>
       <Header />
       <main id="main">
-        <Hero reduced={reduced} />
-        <Marquee />
-        <Projects />
+        <Hero />
+        <Work />
         <About />
-        <Skills />
-        <Services />
         <Contact />
       </main>
-      <Footer />
     </>
   )
 }
